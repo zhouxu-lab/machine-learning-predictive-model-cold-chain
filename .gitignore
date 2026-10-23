@@ -1,0 +1,47 @@
+# Private staging areas. Only explanatory placeholder files are code assets.
+/05_Data/*
+!/05_Data/README.md
+/06_Results/*
+!/06_Results/README.md
+/03_Figures/*
+!/03_Figures/README.md
+/local_staging.json
+
+# Environments, generated artifacts, and measurements do not belong in code.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.parquet
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.joblib
+*.docx
+*.pdf
+*.tif
+*.tiff
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.zip
+*.xml
+*.html
+
+# Pilots and controllers can produce local bookkeeping beside the source.
+04_Code/Modeling/Primary/pilots/
+04_Code/Modeling/NeuralODE/pilots/
+04_Code/Modeling/Primary/pilot/
+04_Code/Modeling/NeuralODE/pilot/
+04_Code/Modeling/Primary/qa/
+04_Code/Modeling/NeuralODE/qa/
+04_Code/Modeling/Primary/*.json
+04_Code/Modeling/NeuralODE/*.json
+04_Code/Modeling/Primary/*.lock
+04_Code/Modeling/NeuralODE/*.lock
+04_Code/Modeling/Primary/controller_error.txt
+04_Code/Modeling/NeuralODE/controller_error.txt

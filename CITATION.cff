@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite this software if you use it. This is a submission and review code release."
+type: software
+title: "ComBase cold-chain modeling code and supplementary tables"
+authors:
+  - family-names: Zhou
+    given-names: Xu
+version: "2026.10.23-review"
+license: MIT
+repository-code: "https://github.com/zhouxu-lab/combase-coldchain-sft"
+url: "https://github.com/zhouxu-lab/combase-coldchain-sft"
+abstract: "Submission and review release of code for source-held-out microbial count prediction and initial-concentration sensitivity analysis using a frozen ComBase snapshot, with three author-created supplementary settings and aggregate-result tables. Source observations, record-level data, and fitted weights require separate private access."

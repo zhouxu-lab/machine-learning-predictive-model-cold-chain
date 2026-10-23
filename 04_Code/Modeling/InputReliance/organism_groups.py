@@ -1,0 +1,1 @@
+SPECIFIC = ['Listeria monocytogenes (identified)', 'Listeria innocua (identified)', 'Salmonella Typhimurium (identified)', 'Salmonella Enteritidis (identified)', 'Escherichia coli O157 (identified)', 'Brochothrix thermosphacta', 'Yersinia enterocolitica', 'Bacillus cereus', 'Aeromonas hydrophila', 'Staphylococcus aureus', 'Clostridium perfringens']
