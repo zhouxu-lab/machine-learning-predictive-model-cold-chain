@@ -8,9 +8,9 @@ The code includes Random Forest, LightGBM, GRU, Transformer, a Neural Baranyi OD
 
 ## Contents
 
-- `04_Code/Modeling`: input preparation, model definitions, training controllers, and numerical evaluation.
-- `04_Code/Shared`: shared features, temperature interpolation, and model components.
-- `05_Data` and `06_Results`: placeholders for ignored local inputs and outputs.
+- `code/Modeling`: input preparation, model definitions, training controllers, and numerical evaluation.
+- `code/Shared`: shared features, temperature interpolation, and model components.
+- `data` and `results`: placeholders for ignored local inputs and outputs.
 
 Supplementary tables belong to the journal submission materials and are not duplicated here. This repository excludes manuscript figures, plotting code, raw observations, record-level datasets, frozen split membership, fitted weights, and third-party Predictor files.
 
@@ -19,7 +19,7 @@ Supplementary tables belong to the journal submission materials and are not dupl
 The reference environment is Windows with Python 3.12. Training controllers use Windows process APIs. Install dependencies in a separate environment:
 
 ```text
-python -m pip install -r 04_Code/requirements.txt
+python -m pip install -r code/requirements.txt
 python -B verify_release.py
 ```
 
@@ -30,12 +30,12 @@ python -B verify_release.py
 The private inputs listed in [DATA_ACCESS.md](DATA_ACCESS.md) must be supplied before model execution. In a fresh working copy containing those inputs:
 
 ```text
-python -B 04_Code/verify_inputs.py
-python -B 04_Code/verify_models.py
-python -B 04_Code/train_all.py --full
+python -B code/verify_inputs.py
+python -B code/verify_models.py
+python -B code/train_all.py --full
 ```
 
-The final command performs model selection and fitting and can take substantial CPU/GPU time. [REPRODUCE.md](04_Code/REPRODUCE.md) gives the run order and numerical-analysis commands. Do not reuse an archived fitted-results directory as a fresh training destination.
+The final command performs model selection and fitting and can take substantial CPU/GPU time. [REPRODUCE.md](code/REPRODUCE.md) gives the run order and numerical-analysis commands. Do not reuse an archived fitted-results directory as a fresh training destination.
 
 Exact model execution requires the inputs, source assignments, split contracts, and prediction rows described in DATA_ACCESS.md. Public code alone does not reproduce the study's exact numerical results; a current ComBase download may differ from the retained snapshot. A complete independent refit has not been certified.
 

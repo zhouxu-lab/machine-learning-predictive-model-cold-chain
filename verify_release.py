@@ -12,7 +12,7 @@ import re
 
 
 ROOT = Path(__file__).resolve().parent
-PRIVATE = {"05_Data", "06_Results"}
+PRIVATE = {"data", "results"}
 EXCLUDED_NAMES = {"Code_Manifest.csv"}
 REMOVED_PUBLIC_FOLDERS = {"03_figures", "figures", "figure_source_data", "officialpredictor", "supplementary_data"}
 REMOVED_PUBLIC_FILES = {

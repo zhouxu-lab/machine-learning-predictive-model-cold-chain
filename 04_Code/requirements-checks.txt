@@ -1,3 +1,0 @@
-# Saved-prediction verification only; Python 3.12 reference environment.
-numpy==2.5.3
-pandas==3.0.5
