@@ -10,7 +10,7 @@ python -B 04_Code/verify_inputs.py
 python -B 04_Code/verify_models.py
 ```
 
-The first command checks public software/table integrity. The second checks frozen input and split hashes. The third checks source separation and neural forward execution. Only the first can run without the private inputs. These checks do not establish an independent refit.
+The first command checks public software integrity. The second checks frozen input and split hashes. The third checks source separation and neural forward execution. Only the first can run without the private inputs. These checks do not establish an independent refit.
 
 For saved benchmark prediction rows in a separate local directory:
 
@@ -74,4 +74,4 @@ python -B 04_Code/Modeling/InputReliance/summarize_reliance.py
 
 ## Input preparation
 
-`Modeling/Preprocessing` retains parsers, curation, feature construction, and the final clean-training exclusion. These scripts require the original normalized tables and source metadata; they do not fetch or recreate the reviewed archive. Curation refuses to overwrite an existing manifest. Rebuild only in a disposable working copy, verify resulting input hashes, and investigate mismatches rather than bypassing them. The three public supplementary tables are summaries, not training inputs.
+`Modeling/Preprocessing` retains parsers, curation, feature construction, and the final clean-training exclusion. These scripts require the original normalized tables and source metadata; they do not fetch or recreate the reviewed archive. Curation refuses to overwrite an existing manifest. Rebuild only in a disposable working copy, verify resulting input hashes, and investigate mismatches rather than bypassing them. The manuscript's supplementary tables are supplied separately and are not training inputs.

@@ -10,10 +10,9 @@ The code includes Random Forest, LightGBM, GRU, Transformer, a Neural Baranyi OD
 
 - `04_Code/Modeling`: input preparation, model definitions, training controllers, and numerical evaluation.
 - `04_Code/Shared`: shared features, temperature interpolation, and model components.
-- `Supplementary_Data`: three tables of candidate settings, fold-selected configurations, and aggregate organism performance; field definitions are in its README.
 - `05_Data` and `06_Results`: placeholders for ignored local inputs and outputs.
 
-This repository excludes manuscript figures, plotting code, raw observations, record-level datasets, frozen split membership, fitted weights, and third-party Predictor files.
+Supplementary tables belong to the journal submission materials and are not duplicated here. This repository excludes manuscript figures, plotting code, raw observations, record-level datasets, frozen split membership, fitted weights, and third-party Predictor files.
 
 ## Setup and checks
 
@@ -24,7 +23,7 @@ python -m pip install -r 04_Code/requirements.txt
 python -B verify_release.py
 ```
 
-`verify_release.py` uses only the standard library and checks the public file inventory, hashes, Python syntax, and allowed supplementary tables. It does not train or validate fitted models. For the reference CUDA 12.8 environment, install the pinned PyTorch wheel from `https://download.pytorch.org/whl/cu128` before the remaining dependencies. Plotting packages are not required.
+`verify_release.py` uses only the standard library and checks the public file inventory, hashes, Python syntax, and the code-only publication scope. It does not train or validate fitted models. For the reference CUDA 12.8 environment, install the pinned PyTorch wheel from `https://download.pytorch.org/whl/cu128` before the remaining dependencies. Plotting packages are not required.
 
 ## Run models and analyses
 
@@ -38,8 +37,8 @@ python -B 04_Code/train_all.py --full
 
 The final command performs model selection and fitting and can take substantial CPU/GPU time. [REPRODUCE.md](04_Code/REPRODUCE.md) gives the run order and numerical-analysis commands. Do not reuse an archived fitted-results directory as a fresh training destination.
 
-The three public summary tables do not replace the exact inputs, source assignments, split contracts, or prediction rows. Public code alone does not reproduce the study's exact numerical results; a current ComBase download may differ from the retained snapshot. A complete independent refit has not been certified.
+Exact model execution requires the inputs, source assignments, split contracts, and prediction rows described in DATA_ACCESS.md. Public code alone does not reproduce the study's exact numerical results; a current ComBase download may differ from the retained snapshot. A complete independent refit has not been certified.
 
 ## License and citation
 
-Software is provided under the root [MIT license](LICENSE). It does not relicense ComBase observations or the separately shared research tables. See [CITATION.cff](CITATION.cff) for the software citation.
+Software is provided under the root [MIT license](LICENSE). It does not relicense ComBase observations or journal supplementary materials. See [CITATION.cff](CITATION.cff) for the software citation.

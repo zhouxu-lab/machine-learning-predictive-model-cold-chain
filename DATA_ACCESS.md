@@ -1,6 +1,6 @@
 # Data and input requirements
 
-Underlying observations originate from [USDA ComBase](https://combase.ars.usda.gov/), subject to its [source terms](https://combase.ars.usda.gov/Disclaimer.aspx). This repository provides code and three aggregate/settings tables, not the exact archived observations, processed record-level inputs, frozen source assignments, prediction rows, or fitted weights. No public access route to those excluded files is asserted here. Their absence limits exact independent reproduction.
+Underlying observations originate from [USDA ComBase](https://combase.ars.usda.gov/), subject to its [source terms](https://combase.ars.usda.gov/Disclaimer.aspx). This repository provides model and analysis code. Journal supplementary tables are maintained separately. It does not include the exact archived observations, processed record-level inputs, frozen source assignments, prediction rows, or fitted weights. No public access route to those excluded files is asserted here. Their absence limits exact independent reproduction.
 
 ## Inputs for the primary training workflow
 
@@ -32,4 +32,4 @@ Initial-concentration and constant-temperature analyses require the normalized `
 
 To check saved benchmark results, provide `censor_safe_matched_points.csv` and `censor_safe_model_metrics.csv` in a local directory and pass that directory to `04_Code/verify_results.py --data`. Reaggregating archived seed predictions additionally requires `06_Results/Predictions/Fitted/Primary` and `NeuralODE`; fresh fitting writes corresponding outputs under `06_Results/Training`.
 
-`05_Data` and `06_Results` are ignored except for their explanatory README files. Keep local inputs and generated outputs out of public commits. The public `Supplementary_Data` tables describe settings and rounded aggregate results; they contain no record/source membership maps and cannot recreate exact errors or fitted models. The MIT software license does not extend to third-party observations or imply a separate data license for the accompanying research tables.
+`05_Data` and `06_Results` are ignored except for their explanatory README files. Keep local inputs and generated outputs out of public commits. The journal supplementary tables describe settings and aggregate results; they cannot substitute for the exact model inputs or fitted outputs. The MIT software license does not extend to third-party observations or journal supplementary materials.

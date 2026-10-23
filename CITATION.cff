@@ -5,8 +5,8 @@ title: "Machine learning predictive models for the food cold chain"
 authors:
   - family-names: Zhou
     given-names: Xu
-version: "2026.10.23-models"
+version: "2026.10.23-code"
 license: MIT
 repository-code: "https://github.com/zhouxu-lab/machine-learning-predictive-model-cold-chain"
 url: "https://github.com/zhouxu-lab/machine-learning-predictive-model-cold-chain"
-abstract: "Model, training and numerical evaluation code for source-held-out microbial growth prediction, with initial-concentration sensitivity, input-reliance analyses and three supplementary settings/aggregate-result tables. Exact inputs and fitted weights are not included."
+abstract: "Model, training and numerical evaluation code for source-held-out microbial growth prediction, with initial-concentration sensitivity and input-reliance analyses. Exact inputs and fitted weights are not included."

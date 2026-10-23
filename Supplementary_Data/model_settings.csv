@@ -1,8 +1,0 @@
-Model,Fixed settings,Four candidate settings
-Random Forest,500 trees; squared-error target,"c0: leaf 10, feature fraction 0.5; c1: 10, 1.0; c2: 40, 0.5; c3: 40, 1.0"
-LightGBM,800 trees; rate 0.05; feature and row fractions 0.8; L2 1,"c0: 31 leaves, child 40; c1: 31, 80; c2: 63, 40; c3: 63, 80"
-GRU,One layer; 20 maximum epochs,"c0: width 32, rate 0.001; c1: 32, 0.002; c2: 64, 0.001; c3: 64, 0.002"
-Transformer,Two layers; four heads; dropout 0.1; 20 maximum epochs,Same width and learning-rate grid as GRU
-Neural Baranyi ODE,Width 64; 30 maximum epochs,"c0: rate 0.001, decay 0.0001; c1: 0.001, 0.001; c2: 0.003, 0.0001; c3: 0.003, 0.001"
-Baranyi backbone,Parametric rates; 30 maximum epochs,"c0: rate 0.001, decay 0.001; c1: 0.001, 0.01; c2: 0.003, 0.001; c3: 0.003, 0.01"
-Baranyi–neural hybrid,Frozen selected backbone; 20 maximum epochs,"c0: width 16, penalty 0.01; c1: 16, 0.1; c2: 32, 0.01; c3: 32, 0.1; rate 0.002"
