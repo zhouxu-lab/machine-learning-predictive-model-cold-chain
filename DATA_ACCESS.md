@@ -1,47 +1,35 @@
-# Data access and third-party materials
+# Data and input requirements
 
-The original source is [ComBase](https://combase.ars.usda.gov/). Its
-[terms and conditions](https://combase.ars.usda.gov/Disclaimer.aspx) apply to
-ComBase data and tools. The MIT software license in this candidate does not
-license those materials. The terms were checked on 23 October 2026; clause 2.2
-addresses reproduction/distribution for personal use, academic or scientific
-research, private study, and internal business, and clause 3 reserves the
-provider's intellectual property. The source observations and record-level
-processed data remain private while the author arranges an access route. Three
-author-created supplementary settings and aggregate-result tables are publicly
-shared in `Supplementary_Data`; they are distinct from the underlying ComBase
-observations. No new data license is asserted by publishing those accompanying
-research tables.
+Underlying observations originate from [USDA ComBase](https://combase.ars.usda.gov/), subject to its [source terms](https://combase.ars.usda.gov/Disclaimer.aspx). This repository provides code and three aggregate/settings tables, not the exact archived observations, processed record-level inputs, frozen source assignments, prediction rows, or fitted weights. No public access route to those excluded files is asserted here. Their absence limits exact independent reproduction.
 
-The private review package retains the dated source archive, processed inputs,
-source-disjoint outer/inner folds, reviewed source correspondence, predictions,
-and final fitted weights. Neither downloading current data nor using random
-splits substitutes for those frozen inputs. Provide approved reviewer access to
-the snapshot under the source terms; the authors must supply that access route.
+## Inputs for the primary training workflow
 
-The code uses a sibling `05_Data` and `06_Results` layout. `stage_private_inputs.py`
-copies approved local files to those ignored folders. The `training` scope needs
-final clean feature/neural inputs, the record catalog, and both split/contract folders. Full
-cohort reconstruction and initial-count sensitivity also require normalized
-Preparation tables, `record_catalog.csv`, and saved models. The `full` scope
-copies the complete private data/results tree for that workflow.
-
-The official USDA ComBase Predictor is a separate comparator from the internally
-fitted Baranyi backbone. To regenerate its six frozen conditional curves, stage
-the private `05_Data/Raw/Official_Predictor` folder and
-`06_Results/Figure_Source_Data/Official_Predictor` folder, retain their attribution,
-and install Node.js. Then run:
+Place approved local copies at these paths relative to the repository root:
 
 ```text
-python -B 04_Code/Modeling/OfficialPredictor/run_official_predictor.py
+05_Data/Processed/Training/features.parquet
+05_Data/Processed/Training/deep_prepared.pkl
+05_Data/Processed/record_catalog.csv
+05_Data/Splits_and_Configurations/Primary/contract.json
+05_Data/Splits_and_Configurations/Primary/splits.json
+05_Data/Splits_and_Configurations/NeuralODE/contract.json
+05_Data/Splits_and_Configurations/NeuralODE/splits.json
 ```
 
-Those downloaded third-party JavaScript files are excluded from this candidate's
-MIT release. The `figures` staging scope includes the returned frozen curves and
-scenarios, sufficient for plotting, but does not include third-party source code.
-The `full` private scope includes that source code. Neither route changes the
-original source-data archive.
+The feature table contains record identifiers, source groups, observation times and targets, starting counts, environmental summaries, and food/organism covariates. The prepared neural input is a tuple of records and category mappings. Records supply temperature grids, covariate vectors, category indices, time-step sizes, starting counts, and observed grid positions and targets. The corresponding preparation and training scripts define the complete field requirements. Deserialize only trusted pickle/model files.
 
-ComBase's `-0.01` represents a non-detection code and is not treated as a measured
-numeric count in the final model fit. Hypothetical initial concentrations of
-0.5–2.0 log units are assumptions, not observed counts or verified detection limits.
+Contracts supply candidate configurations, input hashes, and the split hash. Split files supply the five outer source-held-out train/test partitions and their source-disjoint inner training/validation partitions. The record catalog supplies cohort eligibility and source labels for aggregation. Keep both model families on the same frozen splits. Randomly recreating partitions or downloading current observations does not reconstruct the study inputs.
+
+Verify hashes before training:
+
+```text
+python -B 04_Code/verify_inputs.py
+```
+
+## Additional analyses and saved results
+
+Initial-concentration and constant-temperature analyses require the normalized `05_Data/Processed/Preparation` tables, including their raw/curated tables and features. Neural sensitivity scoring also uses its prepared records. Supply these exact intermediates rather than substituting clean-training rows for a different cohort. Reusing fitted models requires the appropriate `06_Results/Training/Primary` and `06_Results/Training/NeuralODE` outputs.
+
+To check saved benchmark results, provide `censor_safe_matched_points.csv` and `censor_safe_model_metrics.csv` in a local directory and pass that directory to `04_Code/verify_results.py --data`. Reaggregating archived seed predictions additionally requires `06_Results/Predictions/Fitted/Primary` and `NeuralODE`; fresh fitting writes corresponding outputs under `06_Results/Training`.
+
+`05_Data` and `06_Results` are ignored except for their explanatory README files. Keep local inputs and generated outputs out of public commits. The public `Supplementary_Data` tables describe settings and rounded aggregate results; they contain no record/source membership maps and cannot recreate exact errors or fitted models. The MIT software license does not extend to third-party observations or imply a separate data license for the accompanying research tables.

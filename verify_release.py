@@ -12,8 +12,14 @@ import re
 
 
 ROOT = Path(__file__).resolve().parent
-PRIVATE = {"03_Figures", "05_Data", "06_Results"}
+PRIVATE = {"05_Data", "06_Results"}
 EXCLUDED_NAMES = {"Code_Manifest.csv", "local_staging.json"}
+REMOVED_PUBLIC_FOLDERS = {"03_figures", "figures", "figure_source_data", "officialpredictor"}
+REMOVED_PUBLIC_FILES = {
+    "archive_labels.py", "audit_panel_alignment.py", "figure_export.py",
+    "build_archive_counts.py", "run_official_predictor.py",
+    "run_official_predictor.cjs", "stage_private_inputs.py",
+}
 PUBLIC_TABLES = {
     "Supplementary_Data/model_settings.csv": (7, ["Model", "Fixed settings", "Four candidate settings"]),
     "Supplementary_Data/organism_performance_full.csv": (17, ["Organism label", "Records / sources", "Later counts", "MAE", "Underpred. >0.5", "Missed / growth"]),
@@ -32,6 +38,9 @@ def release_files():
             continue
         if rel.parts[0] in PRIVATE and rel.as_posix() != f"{rel.parts[0]}/README.md":
             continue
+        if (any(part.casefold() in REMOVED_PUBLIC_FOLDERS for part in rel.parts[:-1])
+                or rel.name.casefold() in REMOVED_PUBLIC_FILES):
+            raise ValueError(f"Figure, external Predictor, or staging code outside public scope: {rel}")
         yield path
 
 
@@ -54,7 +63,8 @@ def main():
         raise ValueError("The approved supplementary tables are incomplete")
     py_count = 0
     forbidden = {".parquet", ".pkl", ".pickle", ".pt", ".pth", ".joblib",
-                 ".docx", ".pdf", ".tif", ".tiff", ".png", ".jpg", ".svg",
+                 ".docx", ".pdf", ".tif", ".tiff", ".png", ".jpg", ".jpeg", ".svg",
+                 ".gif", ".webp", ".bmp", ".avif", ".eps", ".ps", ".psd", ".ai",
                  ".zip", ".xml", ".html", ".jsonl"}
     credentials = re.compile(r"(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|sk-[A-Za-z0-9_-]{30,})")
     private_path = re.compile(r"[A-Za-z]:[\\/]Users[\\/]", re.IGNORECASE)

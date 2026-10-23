@@ -20,12 +20,11 @@ if args.full:
         parser.error(
             '--full requires a fresh training destination, but '
             f'{len(existing)} saved selection/completion markers exist in 06_Results/Training. '
-            'No pilots or fits were started. Copy the code-only 09_GitHub candidate to a '
-            'separate working folder, then run its stage_private_inputs.py '
-            '--source-root PATH_TO_PRIVATE_REVIEW_PACKAGE --scope training. '
+            'No pilots or fits were started. Use a fresh working copy and place only '
+            'the required private training inputs as described in DATA_ACCESS.md. '
             'Run 04_Code/train_all.py --full from that working folder. '
-            'Do not stage --scope full for a fresh refit, and do not erase the delivered archive. '
-            'The README gives the complete sequence; direct controller resume is a different operation.'
+            'Keep archived fitted results in a separate private folder. '
+            'Direct controller resume is a different operation.'
         )
 def call(family,script,*args):
     folder=CODE/'Modeling'/family

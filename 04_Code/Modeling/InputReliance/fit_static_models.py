@@ -15,8 +15,6 @@ import re
 import sys
 
 import joblib
-import matplotlib as mpl
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from lightgbm import LGBMRegressor

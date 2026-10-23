@@ -8,7 +8,6 @@ from package_paths import PACKAGE_ROOT, CODE, DATA, RESULTS
 
 This does not train models or overwrite research data. Use --data to point to
 the folder containing censor_safe_matched_points.csv and its metrics CSV.
-The September 16 reproduction script remains a historical implementation.
 """
 from pathlib import Path
 import argparse

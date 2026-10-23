@@ -3,9 +3,7 @@
 !/05_Data/README.md
 /06_Results/*
 !/06_Results/README.md
-/03_Figures/*
-!/03_Figures/README.md
-/local_staging.json
+/03_Figures/
 
 # Environments, generated artifacts, and measurements do not belong in code.
 .venv/

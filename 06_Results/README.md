@@ -1,3 +1,3 @@
-Private results placeholder. Saved prediction rows and model weights are in the
-local review package, outside this code candidate. Staged/generated files remain
-ignored. See `../README.md` for read-only result checks and private staging.
+# Local model outputs
+
+Fitting and numerical evaluation write outputs here. Existing predictions and fitted weights must be supplied separately when needed. This directory is ignored except for this placeholder; see [the run guide](../04_Code/REPRODUCE.md).
